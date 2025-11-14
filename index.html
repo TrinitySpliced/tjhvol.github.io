@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Volunteer with The Job Hackers. Explore open volunteer roles, learn how it works, and join our mission to empower job seekers.">
+  <title>Volunteer - The Job Hackers</title>
+  
+  <!-- Lato Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ========================================
+       CSS VARIABLES & ROOT
+       ======================================== */
+    :root {
+      --tjh-white: #ffffff;
+      --tjh-deep-blue: #28266e;
+      --tjh-royal-blue: #2479be;
+      --tjh-orange: #f89639;
+      --tjh-pale-yellow: #fbf19a;
+      --tjh-tan: #e0d3a3;
+      --tjh-text: #0f172a;
+      --tjh-muted: #e5e7eb;
+      --tjh-shadow: rgba(0, 0, 0, 0.1);
+      --tjh-shadow-lg: rgba(0, 0, 0, 0.15);
+    }
+
+    /* ========================================
+       RESET & GLOBAL
+       ======================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--tjh-text);
+      background-color: var(--tjh-white);
+    }
+
+    a {
+      color: var(--tjh-royal-blue);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--tjh-deep-blue);
+      text-decoration: underline;
+    }
+
+    button, input, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    /* ========================================
+       HEADER & NAVIGATION
+       ======================================== */
+    .tjh-header {
+      background: linear-gradient(135deg, var(--tjh-deep-blue) 0%, var(--tjh-royal-blue) 100%);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 8px var(--tjh-shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tjh-header-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .tjh-logo {
+      height: 40px;
+      width: auto;
+    }
+
+    .tjh-logo-text {
+      color: var(--tjh-white);
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .tjh-nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .tjh-nav-links a {
+      color: var(--tjh-white);
+      font-weight: 400;
+      transition: color 0.2s ease, text-shadow 0.2s ease;
+    }
+
+    .tjh-nav-links a:hover {
+      color: var(--tjh-pale-yellow);
+      text-decoration: none;
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .tjh-header {
+        padding: 1rem;
+      }
+
+      .tjh-nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* ========================================
+       HERO SECTION
+       ======================================== */
+    .tjh-hero {
+      background-image: url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=1650&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--tjh-white);
+      padding: 3rem 2rem;
+    }
+
+    .tjh-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(40, 38, 110, 0.8) 0%, rgba(36, 121, 190, 0.8) 100%);
+      z-index: 1;
+    }
+
+    .tjh-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .tjh-hero-logo {
+      height: 80px;
+      width: auto;
+      margin: 0 auto 2rem;
+      display: block;
+    }
+
+    .tjh-hero h1 {
+      font-size: 3rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .tjh-hero-subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      line-height: 1.6;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .tjh-hero-ctas {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .tjh-btn {
+      padding: 0.85rem 2.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .tjh-btn-primary {
+      background-color: var(--tjh-orange);
+      color: var(--tjh-white);
+      box-shadow: 0 4px 12px rgba(248, 150, 57, 0.3);
+    }
+
+    .tjh-btn-primary:hover {
+      background-color: #f07c1e;
+      box-shadow: 0 6px 16px rgba(248, 150, 57, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .tjh-btn-secondary {
+      background-color: transparent;
+      color: var(--tjh-white);
+      border: 2px solid var(--tjh-white);
+    }
+
+    .tjh-btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .tjh-hero {
+        min-height: 500px;
+        padding: 2rem 1rem;
+      }
+
+      .tjh-hero h1 {
+        font-size: 2rem;
+      }
+
+      .tjh-hero-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .tjh-hero-ctas {
+        gap: 1rem;
+      }
+
+      .tjh-btn {
+        padding: 0.75rem 2rem;
+        font-size: 0.95rem;
+      }
+    }
+
+    /* ========================================
+       SECTION CONTAINER
+       ======================================== */
+    .tjh-section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .tjh-section h2 {
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      color: var(--tjh-deep-blue);
+    }
+
+    @media (max-width: 768px) {
+      .tjh-section {
+        padding: 2rem 1rem;
+      }
+
+      .tjh-section h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* ========================================
+       ROLES SECTION
+       ======================================== */
+    .tjh-roles-header {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .tjh-search-container {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .tjh-search-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 2px solid var(--tjh-muted);
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .tjh-search-input:focus {
+      outline: none;
+      border-color: var(--tjh-royal-blue);
+      box-shadow: 0 0 0 3px rgba(36, 121, 190, 0.1);
+    }
+
+    .tjh-filters {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .tjh-filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .tjh-filter-group label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--tjh-text);
+    }
+
+    .tjh-filter-group select {
+      padding: 0.75rem 1rem;
+      border: 2px solid var(--tjh-muted);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      background-color: var(--tjh-white);
+      cursor: pointer;
+      transition: border-color 0.2s ease;
+    }
+
+    .tjh-filter-group select:focus {
+      outline: none;
+      border-color: var(--tjh-royal-blue);
+    }
+
+    .tjh-roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .tjh-role-card {
+      background: var(--tjh-white);
+      border: 1px solid var(--tjh-muted);
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px var(--tjh-shadow);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tjh-role-card:hover {
+      border-color: var(--tjh-royal-blue);
+      box-shadow: 0 4px 16px var(--tjh-shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .tjh-role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .tjh-role-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--tjh-deep-blue);
+      flex: 1;
+    }
+
+    .tjh-save-role-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tjh-save-role-btn:hover {
+      transform: scale(1.2);
+    }
+
+    .tjh-save-role-btn.saved {
+      color: var(--tjh-orange);
+    }
+
+    .tjh-role-type {
+      display: inline-block;
+      background-color: var(--tjh-pale-yellow);
+      color: var(--tjh-deep-blue);
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+
+    .tjh-role-short {
+      font-size: 0.95rem;
+      color: #6b7280;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .tjh-role-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    .tjh-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tjh-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tjh-skill-tag {
+      background-color: #f3f4f6;
+      color: var(--tjh-text);
+      padding: 0.35rem 0.65rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 400;
+    }
+
+    .tjh-role-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: auto;
+    }
+
+    .tjh-btn-apply {
+      flex: 1;
+      padding: 0.65rem 1.5rem;
+      font-size: 0.95rem;
+      background-color: var(--tjh-orange);
+      color: var(--tjh-white);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .tjh-btn-apply:hover {
+      background-color: #f07c1e;
+    }
+
+    .tjh-btn-details {
+      flex: 1;
+      padding: 0.65rem 1.5rem;
+      font-size: 0.95rem;
+      background-color: transparent;
+      color: var(--tjh-royal-blue);
+      border: 2px solid var(--tjh-royal-blue);
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .tjh-btn-details:hover {
+      background-color: var(--tjh-royal-blue);
+      color: var(--tjh-white);
+    }
+
+    /* ========================================
+       ACCORDION (ROLE DETAILS)
+       ======================================== */
+    .tjh-accordion {
+      display: none;
+      background-color: #f9fafb;
+      border-top: 1px solid var(--tjh-muted);
+      padding: 1.5rem;
+      margin-top: 1rem;
+      border-radius: 0 0 8px 8px;
+      line-height: 1.7;
+      color: #4b5563;
+    }
+
+    .tjh-accordion.open {
+      display: block;
+    }
+
+    .tjh-empty-state {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: #6b7280;
+    }
+
+    .tjh-empty-state h3 {
+      font-size: 1.3rem;
+      color: var(--tjh-deep-blue);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ========================================
+       HOW IT WORKS SECTION
+       ======================================== */
+    .tjh-how-it-works {
+      background: linear-gradient(135deg, rgba(40, 38, 110, 0.05) 0%, rgba(36, 121, 190, 0.05) 100%);
+      padding: 4rem 2rem;
+    }
+
+    .tjh-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .tjh-step {
+      text-align: center;
+    }
+
+    .tjh-step-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--tjh-deep-blue) 0%, var(--tjh-royal-blue) 100%);
+      color: var(--tjh-white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0 auto 1rem;
+      box-shadow: 0 4px 12px rgba(40, 38, 110, 0.2);
+    }
+
+    .tjh-step h3 {
+      font-size: 1.2rem;
+      color: var(--tjh-deep-blue);
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    .tjh-step p {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    .tjh-schedule-panel {
+      background: var(--tjh-white);
+      border: 2px solid var(--tjh-deep-blue);
+      border-radius: 8px;
+      padding: 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .tjh-schedule-panel h3 {
+      font-size: 1.2rem;
+      color: var(--tjh-deep-blue);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .tjh-schedule-item {
+      border-bottom: 1px solid var(--tjh-muted);
+      padding: 1rem 0;
+    }
+
+    .tjh-schedule-item:last-child {
+      border-bottom: none;
+    }
+
+    .tjh-schedule-title {
+      font-weight: 500;
+      color: var(--tjh-text);
+      margin-bottom: 0.35rem;
+    }
+
+    .tjh-schedule-time {
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    /* ========================================
+       RESOURCES SECTION
+       ======================================== */
+    .tjh-resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .tjh-resource-card {
+      background: var(--tjh-white);
+      border: 1px solid var(--tjh-muted);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .tjh-resource-card:hover {
+      border-color: var(--tjh-orange);
+      box-shadow: 0 4px 12px rgba(248, 150, 57, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .tjh-resource-card h3 {
+      font-size: 1.1rem;
+      color: var(--tjh-deep-blue);
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    .tjh-resource-card p {
+      font-size: 0.9rem;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    .tjh-resource-card a {
+      color: var(--tjh-orange);
+      font-weight: 500;
+      margin-top: 1rem;
+      display: inline-block;
+    }
+
+    /* ========================================
+       MODAL
+       ======================================== */
+    .tjh-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      animation: tjh-fadeIn 0.2s ease;
+    }
+
+    .tjh-modal.open {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes tjh-fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .tjh-modal-content {
+      background-color: var(--tjh-white);
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      animation: tjh-slideIn 0.3s ease;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    @keyframes tjh-slideIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .tjh-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--tjh-muted);
+      padding-bottom: 1rem;
+    }
+
+    .tjh-modal-title {
+      font-size: 1.5rem;
+      color: var(--tjh-deep-blue);
+      font-weight: 500;
+    }
+
+    .tjh-modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #6b7280;
+      transition: color 0.2s ease;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tjh-modal-close:hover {
+      color: var(--tjh-deep-blue);
+    }
+
+    .tjh-form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .tjh-form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--tjh-text);
+      font-size: 0.95rem;
+    }
+
+    .tjh-form-group input,
+    .tjh-form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid var(--tjh-muted);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .tjh-form-group input:focus,
+    .tjh-form-group textarea:focus {
+      outline: none;
+      border-color: var(--tjh-royal-blue);
+      box-shadow: 0 0 0 3px rgba(36, 121, 190, 0.1);
+    }
+
+    .tjh-form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .tjh-error-message {
+      color: #dc2626;
+      font-size: 0.85rem;
+      margin-top: 0.35rem;
+    }
+
+    .tjh-success-message {
+      background-color: #d1fae5;
+      color: #065f46;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid #10b981;
+    }
+
+    .tjh-modal-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .tjh-btn-submit {
+      flex: 1;
+      padding: 0.85rem 1.5rem;
+      background-color: var(--tjh-orange);
+      color: var(--tjh-white);
+      border: none;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tjh-btn-submit:hover {
+      background-color: #f07c1e;
+    }
+
+    .tjh-btn-cancel {
+      flex: 1;
+      padding: 0.85rem 1.5rem;
+      background-color: transparent;
+      color: var(--tjh-royal-blue);
+      border: 2px solid var(--tjh-royal-blue);
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tjh-btn-cancel:hover {
+      background-color: var(--tjh-royal-blue);
+      color: var(--tjh-white);
+    }
+
+    .tjh-form-note {
+      background-color: #fef3c7;
+      border-left: 4px solid var(--tjh-orange);
+      padding: 1rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #78350f;
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    .tjh-footer {
+      background: linear-gradient(135deg, var(--tjh-deep-blue) 0%, var(--tjh-royal-blue) 100%);
+      color: var(--tjh-white);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .tjh-footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      text-align: left;
+    }
+
+    .tjh-footer-section h3 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .tjh-footer-section ul {
+      list-style: none;
+    }
+
+    .tjh-footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .tjh-footer-section a {
+      color: var(--tjh-pale-yellow);
+      transition: color 0.2s ease;
+    }
+
+    .tjh-footer-section a:hover {
+      color: var(--tjh-white);
+      text-decoration: none;
+    }
+
+    .tjh-social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .tjh-social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transition: all 0.2s ease;
+    }
+
+    .tjh-social-icons a:hover {
+      background-color: var(--tjh-orange);
+      color: var(--tjh-white);
+    }
+
+    .tjh-footer-bottom {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* ========================================
+       BACK TO TOP BUTTON
+       ======================================== */
+    .tjh-back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--tjh-deep-blue) 0%, var(--tjh-royal-blue) 100%);
+      color: var(--tjh-white);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 500;
+      transition: all 0.3s ease;
+    }
+
+    .tjh-back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .tjh-back-to-top.show {
+      display: flex;
+    }
+
+    /* ========================================
+       PRINT STYLES
+       ======================================== */
+    @media print {
+      .tjh-header, .tjh-back-to-top, .tjh-modal, .tjh-hero-ctas, .tjh-role-actions {
+        display: none;
+      }
+
+      .tjh-section {
+        page-break-inside: avoid;
+      }
+
+      .tjh-role-card {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+      }
+    }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 768px) {
+      .tjh-roles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tjh-role-header {
+        flex-direction: column;
+      }
+
+      .tjh-role-actions {
+        flex-direction: column;
+      }
+
+      .tjh-modal-content {
+        width: 90%;
+        padding: 1.5rem;
+      }
+
+      .tjh-footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .tjh-back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 1rem;
+        right: 1rem;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- HEADER/NAV -->
+  <header class="tjh-header">
+    <div class="tjh-header-logo">
+      <img src="https://www.thejobhackers.org/wp-content/uploads/2020/09/cropped-thejobhackers-fb-0e2f76-300-pixels-transparent-100x100.png" alt="The Job Hackers logo" class="tjh-logo">
+      <span class="tjh-logo-text">The Job Hackers</span>
+    </div>
+    <nav>
+      <ul class="tjh-nav-links">
+        <li><a href="#tjh-roles">Roles</a></li>
+        <li><a href="#tjh-how-it-works">How It Works</a></li>
+        <li><a href="#tjh-resources">Resources</a></li>
+        <li><button class="tjh-nav-cta" style="background: var(--tjh-orange); color: var(--tjh-white); border: none; padding: 0.65rem 1.5rem; border-radius: 6px; cursor: pointer; font-weight: 500;">Apply Now</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="tjh-hero">
+    <div class="tjh-hero-content">
+      <img src="https://www.thejobhackers.org/wp-content/uploads/2020/09/cropped-thejobhackers-fb-0e2f76-300-pixels-transparent-100x100.png" alt="The Job Hackers logo" class="tjh-hero-logo">
+      <h1>Volunteer with The Job Hackers</h1>
+      <p class="tjh-hero-subtitle">Help empower job seekers through mentoring, workshops, and community building. Make a real impact with flexible, meaningful volunteer roles.</p>
+      <div class="tjh-hero-ctas">
+        <a href="#tjh-roles" class="tjh-btn tjh-btn-primary">See Open Roles</a>
+        <button class="tjh-btn tjh-btn-secondary tjh-open-apply-modal">Apply Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROLES SECTION -->
+  <section class="tjh-section" id="tjh-roles">
+    <h2>Open Volunteer Roles</h2>
+
+    <div class="tjh-roles-header">
+      <div class="tjh-search-container">
+        <input type="text" id="tjh-search" class="tjh-search-input" placeholder="Search roles by title or skill...">
+      </div>
+      <div class="tjh-filters">
+        <div class="tjh-filter-group">
+          <label for="tjh-filter-type">Role Type</label>
+          <select id="tjh-filter-type">
+            <option value="">All Types</option>
+            <option value="Facilitator">Facilitator</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Onboarding">Onboarding</option>
+            <option value="Admin">Admin</option>
+            <option value="Events">Events</option>
+          </select>
+        </div>
+        <div class="tjh-filter-group">
+          <label for="tjh-filter-time">Meeting Time</label>
+          <select id="tjh-filter-time">
+            <option value="">All Times</option>
+            <option value="Evenings">Evenings</option>
+            <option value="Weekends">Weekends</option>
+            <option value="Async">Async</option>
+          </select>
+        </div>
+        <div class="tjh-filter-group">
+          <label for="tjh-sort">Sort By</label>
+          <select id="tjh-sort">
+            <option value="newest">Newest</option>
+            <option value="a-z">A-Z</option>
+            <option value="commitment">Commitment (Low to High)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="tjh-roles-grid" id="tjh-roles-container">
+      <!-- Roles will be inserted here -->
+    </div>
+
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="tjh-how-it-works" id="tjh-how-it-works">
+    <div class="tjh-section">
+      <h2 style="text-align: center; margin-bottom: 3rem;">How It Works</h2>
+
+      <div class="tjh-steps">
+        <div class="tjh-step">
+          <div class="tjh-step-number">1</div>
+          <h3>Apply</h3>
+          <p>Submit your application with your skills, availability, and interests. We'll review your profile and match you with the right role.</p>
+        </div>
+        <div class="tjh-step">
+          <div class="tjh-step-number">2</div>
+          <h3>Onboarding Call</h3>
+          <p>Meet with our volunteer coordinator to learn more about the role, ask questions, and ensure it's a great fit.</p>
+        </div>
+        <div class="tjh-step">
+          <div class="tjh-step-number">3</div>
+          <h3>Team Intro</h3>
+          <p>Join your volunteer team, get trained, and start making an impact! We provide full support and guidance.</p>
+        </div>
+      </div>
+
+      <div class="tjh-schedule-panel">
+        <h3>Typical Meeting Times</h3>
+        <div class="tjh-schedule-item">
+          <div class="tjh-schedule-title">Volunteer Onboarding</div>
+          <div class="tjh-schedule-time">Tue 6–7am PT / 9–10am ET, weekly</div>
+        </div>
+        <div class="tjh-schedule-item">
+          <div class="tjh-schedule-title">Facilitator Sync</div>
+          <div class="tjh-schedule-time">Thu 5–6pm PT / 8–9pm ET, bi-weekly</div>
+        </div>
+        <div class="tjh-schedule-item">
+          <div class="tjh-schedule-title">Marketing Team Check-in</div>
+          <div class="tjh-schedule-time">Wed 4–5pm PT / 7–8pm ET, monthly</div>
+        </div>
+        <div class="tjh-schedule-item">
+          <div class="tjh-schedule-title">Admin Office Hours</div>
+          <div class="tjh-schedule-time">Async (Slack), ongoing</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section class="tjh-section" id="tjh-resources">
+    <h2>Resources & Support</h2>
+
+    <div class="tjh-resources-grid">
+      <a href="#" class="tjh-resource-card">
+        <h3>About The Job Hackers</h3>
+        <p>Learn about our mission, team, and impact in the job seeker community.</p>
+        <span style="color: var(--tjh-orange); font-weight: 500;">Learn more →</span>
+      </a>
+      <a href="#" class="tjh-resource-card">
+        <h3>Agile MBA Program</h3>
+        <p>Explore our flagship educational initiative and how you can support it.</p>
+        <span style="color: var(--tjh-orange); font-weight: 500;">Explore →</span>
+      </a>
+      <a href="#" class="tjh-resource-card">
+        <h3>Volunteer FAQ</h3>
+        <p>Common questions about volunteering, time commitment, and expectations.</p>
+        <span style="color: var(--tjh-orange); font-weight: 500;">Read FAQ →</span>
+      </a>
+      <a href="#" class="tjh-resource-card">
+        <h3>Events Calendar</h3>
+        <p>Upcoming volunteer events, workshops, and team building activities.</p>
+        <span style="color: var(--tjh-orange); font-weight: 500;">View Calendar →</span>
+      </a>
+      <a href="#" class="tjh-resource-card">
+        <h3>Newsletter</h3>
+        <p>Stay updated on volunteer stories, tips, and community news.</p>
+        <span style="color: var(--tjh-orange); font-weight: 500;">Subscribe →</span>
+      </a>
+      <a href="#" class="tjh-resource-card">
+        <h3>Support Us</h3>
+        <p>Can't volunteer? Learn how you can support The Job Hackers through donations.</p>
+        <span style="color: var(--tjh-orange); font-weight: 500;">Donate →</span>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- APPLICATION MODAL -->
+  <div id="tjh-apply-modal" class="tjh-modal">
+    <div class="tjh-modal-content">
+      <div class="tjh-modal-header">
+        <h2 class="tjh-modal-title">Apply to Volunteer</h2>
+        <button class="tjh-modal-close" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div id="tjh-form-container">
+        <form id="tjh-apply-form">
+          <div class="tjh-form-group">
+            <label for="tjh-name">Full Name *</label>
+            <input type="text" id="tjh-name" name="name" required>
+            <div class="tjh-error-message" id="tjh-error-name"></div>
+          </div>
+
+          <div class="tjh-form-group">
+            <label for="tjh-email">Email Address *</label>
+            <input type="email" id="tjh-email" name="email" required>
+            <div class="tjh-error-message" id="tjh-error-email"></div>
+          </div>
+
+          <div class="tjh-form-group">
+            <label for="tjh-phone">Phone Number</label>
+            <input type="tel" id="tjh-phone" name="phone">
+          </div>
+
+          <div class="tjh-form-group">
+            <label for="tjh-availability">Availability *</label>
+            <select id="tjh-availability" name="availability" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--tjh-muted); border-radius: 6px; font-size: 0.95rem;">
+              <option value="">Select your availability</option>
+              <option value="Weekdays">Weekdays (Mornings)</option>
+              <option value="Evenings">Evenings</option>
+              <option value="Weekends">Weekends</option>
+              <option value="Async">Flexible / Async</option>
+            </select>
+            <div class="tjh-error-message" id="tjh-error-availability"></div>
+          </div>
+
+          <div class="tjh-form-group">
+            <label for="tjh-experience">Tell us about your experience *</label>
+            <textarea id="tjh-experience" name="experience" placeholder="What skills or experience do you bring?" required></textarea>
+            <div class="tjh-error-message" id="tjh-error-experience"></div>
+          </div>
+
+          <div class="tjh-form-note">
+            <strong>Next Step:</strong> After you submit, you'll be redirected to our full application form on Tally to provide more details.
+          </div>
+
+          <div class="tjh-modal-actions">
+            <button type="submit" class="tjh-btn-submit">Submit Application</button>
+            <button type="button" class="tjh-btn-cancel tjh-modal-close-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="tjh-footer">
+    <div class="tjh-footer-content">
+      <div class="tjh-footer-section">
+        <h3>The Job Hackers</h3>
+        <p>Empowering job seekers through mentoring, education, and community.</p>
+        <div class="tjh-social-icons">
+          <a href="#" aria-label="LinkedIn" title="LinkedIn">in</a>
+          <a href="#" aria-label="Twitter" title="Twitter">𝕏</a>
+          <a href="#" aria-label="Facebook" title="Facebook">f</a>
+          <a href="#" aria-label="Instagram" title="Instagram">📷</a>
+        </div>
+      </div>
+      <div class="tjh-footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Programs</a></li>
+          <li><a href="#">Volunteer</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="tjh-footer-section">
+        <h3>Contact</h3>
+        <p>Email: <a href="mailto:volunteer@thejobhackers.org">volunteer@thejobhackers.org</a></p>
+        <p>Phone: (555) 123-4567</p>
+      </div>
+    </div>
+    <div class="tjh-footer-bottom">
+      <p>&copy; 2025 The Job Hackers. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button class="tjh-back-to-top" id="tjh-back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // ========================================
+    // DATA
+    // ========================================
+    const TJH_ROLES = [
+      {
+        id: "facilitator-101",
+        title: "Agile MBA Course Facilitator",
+        type: "Facilitator",
+        commitment: "2–3 hrs, 3x/week",
+        meeting: "TBD - Once per quarter",
+        location: "Remote",
+        skills: ["Agile", "Generalist", "Public Speaking"],
+        short: "Co-lead live sessions, guide learners, and foster community engagement.",
+        description: "Join our team as an Agile MBA Facilitator! You'll co-lead live online sessions, guide learners through practical agile scenarios, foster community engagement, and provide feedback on exercises. We're looking for experienced professionals who are passionate about teaching and have strong communication skills.",
+        posted: "2025-11-15"
+      },
+      {
+        id: "media-201",
+        title: "Social Media Outreach Manager",
+        type: "Marketing",
+        commitment: "3–4 hrs/week",
+        meeting: "Async + Thu 5–6pm PT/8-9pm ET (monthly)",
+        location: "Remote",
+        skills: ["Content", "SEO", "Social Media"],
+        short: "Create short-form social posts for LinkedIn and Instagram to boost engagement.",
+        description: "Own management of our social media channels! You'll create compelling short-form content for LinkedIn and Instagram, engage with commenters, respond to DMs, track basic metrics, and help raise awareness of our programs. No experience necessary—just creativity and enthusiasm!",
+        posted: "2025-11-10"
+      },
+      {
+        id: "onboarding-301",
+        title: "Volunteer Onboarding Host",
+        type: "Onboarding",
+        commitment: "1–2 hrs/week",
+        meeting: "Tue 6–7am PT/9-10am ET (weekly)",
+        location: "Remote",
+        skills: ["Mentoring", "Communication"],
+        short: "Welcome new volunteers, explain programs, and help them find the right role.",
+        description: "Be the first face new volunteers see! You'll host weekly onboarding calls, welcome new team members, walk them through our programs and impact, answer questions, and match them with volunteer roles that fit their interests and availability.",
+        posted: "2025-11-08"
+      },
+      {
+        id: "finance-401",
+        title: "Non-Profit Finance Administrator",
+        type: "Admin",
+        commitment: "4–5 hrs/week",
+        meeting: "Async (Slack + monthly check-in)",
+        location: "Remote",
+        skills: ["Accounting", "Excel", "Attention to Detail"],
+        short: "Help manage budgets, track expenses, and support financial planning.",
+        description: "Support our finance operations! You'll help track expenses, reconcile accounts, manage budgets, prepare reports, and ensure accurate financial records. Strong Excel skills and attention to detail are essential. Prior non-profit experience a plus.",
+        posted: "2025-11-05"
+      },
+      {
+        id: "events-501",
+        title: "Events Coordinator",
+        type: "Events",
+        commitment: "3–5 hrs/week",
+        meeting: "Wed 4–5pm PT/7-8pm ET (bi-weekly)",
+        location: "Hybrid",
+        skills: ["Organization", "Planning", "Communication"],
+        short: "Plan and execute volunteer meetups, workshops, and community events.",
+        description: "Bring our community together! You'll help plan and coordinate volunteer socials, skill-building workshops, mentoring events, and community gatherings. From logistics to promotion, you'll help create meaningful experiences for our volunteers.",
+        posted: "2025-11-01"
+      },
+      {
+        id: "slack-601",
+        title: "Slack Community Moderator",
+        type: "Admin",
+        commitment: "2–3 hrs/week",
+        meeting: "Async (Slack channels)",
+        location: "Remote",
+        skills: ["Community Management", "Soft Skills"],
+        short: "Foster a positive, inclusive Slack community for our volunteers.",
+        description: "Help moderate our Slack workspace! You'll welcome new members, encourage discussions, enforce community guidelines, organize channels, and ensure our volunteer community stays positive and supportive. This role is ideal for community-minded individuals.",
+        posted: "2025-10-28"
+      },
+      {
+        id: "influencer-701",
+        title: "Influencer Outreach Specialist",
+        type: "Marketing",
+        commitment: "3–4 hrs/week",
+        meeting: "Async + Mon 6–7pm PT/9-10pm ET (monthly)",
+        location: "Remote",
+        skills: ["Networking", "Outreach", "Social Media"],
+        short: "Reach out to micro-influencers and thought leaders to amplify our message.",
+        description: "Help us grow! You'll identify and outreach to micro-influencers, thought leaders, and content creators in the job search and career development space. Build relationships, secure partnerships, and amplify our mission across platforms.",
+        posted: "2025-10-25"
+      },
+      {
+        id: "mentor-801",
+        title: "Job Search Mentor",
+        type: "Facilitator",
+        commitment: "1–2 hrs/week",
+        meeting: "Flexible (1-on-1 with mentees)",
+        location: "Remote",
+        skills: ["Mentoring", "Job Search", "Generalist"],
+        short: "Guide job seekers through their career journey with personalized mentoring.",
+        description: "Share your expertise! As a job search mentor, you'll conduct 1-on-1 sessions with job seekers, review resumes, conduct mock interviews, provide career advice, and help them navigate their search. Flexibility is key—you choose your meeting times.",
+        posted: "2025-10-20"
+      }
+    ];
+
+    // ========================================
+    // STATE & DOM REFS
+    // ========================================
+    let filteredRoles = [...TJH_ROLES];
+    const savedRoles = JSON.parse(localStorage.getItem('tjh_saved_roles')) || [];
+
+    const rolesContainer = document.getElementById('tjh-roles-container');
+    const searchInput = document.getElementById('tjh-search');
+    const filterType = document.getElementById('tjh-filter-type');
+    const filterTime = document.getElementById('tjh-filter-time');
+    const sortSelect = document.getElementById('tjh-sort');
+    const applyModal = document.getElementById('tjh-apply-modal');
+    const applyForm = document.getElementById('tjh-apply-form');
+    const backToTopBtn = document.getElementById('tjh-back-to-top');
+
+    // ========================================
+    // RENDER ROLES
+    // ========================================
+    function renderRoles() {
+      if (filteredRoles.length === 0) {
+        rolesContainer.innerHTML = `
+          <div class="tjh-empty-state" style="grid-column: 1 / -1;">
+            <h3>No roles found</h3>
+            <p>Try adjusting your search or filters to find volunteer opportunities.</p>
+          </div>
+        `;
+        return;
+      }
+
+      rolesContainer.innerHTML = filteredRoles.map(role => `
+        <div class="tjh-role-card" data-role-id="${role.id}">
+          <div class="tjh-role-header">
+            <h3 class="tjh-role-title">${role.title}</h3>
+            <button class="tjh-save-role-btn" data-role-id="${role.id}" aria-label="Save role" ${savedRoles.includes(role.id) ? 'class="tjh-save-role-btn saved"' : ''}>
+              ${savedRoles.includes(role.id) ? '♥' : '♡'}
+            </button>
+          </div>
+
+          <span class="tjh-role-type">${role.type}</span>
+
+          <p class="tjh-role-short">${role.short}</p>
+
+          <div class="tjh-role-meta">
+            <div class="tjh-meta-item">
+              <span>⏱️</span>
+              <span>${role.commitment}</span>
+            </div>
+            <div class="tjh-meta-item">
+              <span>📅</span>
+              <span>${role.meeting}</span>
+            </div>
+            <div class="tjh-meta-item">
+              <span>📍</span>
+              <span>${role.location}</span>
+            </div>
+          </div>
+
+          <div class="tjh-skills">
+            ${role.skills.map(skill => `<span class="tjh-skill-tag">${skill}</span>`).join('')}
+          </div>
+
+          <div class="tjh-role-actions">
+            <button class="tjh-btn-apply tjh-open-apply-modal" data-role-id="${role.id}">Apply</button>
+            <button class="tjh-btn-details tjh-toggle-accordion" data-role-id="${role.id}">View Details</button>
+          </div>
+
+          <div class="tjh-accordion" id="accordion-${role.id}">
+            <h4 style="color: var(--tjh-deep-blue); margin-bottom: 1rem; font-weight: 500;">Job Description</h4>
+            <p>${role.description}</p>
+            <p style="margin-top: 1rem; color: #6b7280; font-size: 0.9rem;">
+              <strong>Posted:</strong> ${new Date(role.posted).toLocaleDateString()}
+            </p>
+          </div>
+        </div>
+      `).join('');
+
+      // Attach event listeners
+      document.querySelectorAll('.tjh-toggle-accordion').forEach(btn => {
+        btn.addEventListener('click', toggleAccordion);
+      });
+
+      document.querySelectorAll('.tjh-save-role-btn').forEach(btn => {
+        btn.addEventListener('click', saveRole);
+      });
+
+      document.querySelectorAll('.tjh-open-apply-modal').forEach(btn => {
+        btn.addEventListener('click', openApplyModal);
+      });
+    }
+
+    // ========================================
+    // FILTER & SEARCH
+    // ========================================
+    function filterAndSort() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const typeFilter = filterType.value;
+      const timeFilter = filterTime.value;
+      const sortBy = sortSelect.value;
+
+      filteredRoles = TJH_ROLES.filter(role => {
+        const matchesSearch = role.title.toLowerCase().includes(searchTerm) ||
+                             role.skills.some(s => s.toLowerCase().includes(searchTerm)) ||
+                             role.short.toLowerCase().includes(searchTerm);
+        const matchesType = !typeFilter || role.type === typeFilter;
+        const matchesTime = !timeFilter || role.meeting.includes(timeFilter) || role.meeting.includes(timeFilter === 'Async' ? 'Async' : '');
+
+        return matchesSearch && matchesType && matchesTime;
+      });
+
+      // Sort
+      if (sortBy === 'newest') {
+        filteredRoles.sort((a, b) => new Date(b.posted) - new Date(a.posted));
+      } else if (sortBy === 'a-z') {
+        filteredRoles.sort((a, b) => a.title.localeCompare(b.title));
+      } else if (sortBy === 'commitment') {
+        filteredRoles.sort((a, b) => {
+          const aHours = parseInt(a.commitment.match(/\d+/)[0]);
+          const bHours = parseInt(b.commitment.match(/\d+/)[0]);
+          return aHours - bHours;
+        });
+      }
+
+      renderRoles();
+    }
+
+    searchInput.addEventListener('input', filterAndSort);
+    filterType.addEventListener('change', filterAndSort);
+    filterTime.addEventListener('change', filterAndSort);
+    sortSelect.addEventListener('change', filterAndSort);
+
+    // ========================================
+    // ACCORDION
+    // ========================================
+    function toggleAccordion(e) {
+      const roleId = e.target.dataset.roleId;
+      const accordion = document.getElementById(`accordion-${roleId}`);
+      accordion.classList.toggle('open');
+
+      e.target.textContent = accordion.classList.contains('open') ? 'Hide Details' : 'View Details';
+    }
+
+    // ========================================
+    // SAVE ROLE
+    // ========================================
+    function saveRole(e) {
+      const roleId = e.target.dataset.roleId;
+      if (savedRoles.includes(roleId)) {
+        savedRoles.splice(savedRoles.indexOf(roleId), 1);
+        e.target.textContent = '♡';
+        e.target.classList.remove('saved');
+      } else {
+        savedRoles.push(roleId);
+        e.target.textContent = '♥';
+        e.target.classList.add('saved');
+      }
+      localStorage.setItem('tjh_saved_roles', JSON.stringify(savedRoles));
+    }
+
+    // ========================================
+    // MODAL
+    // ========================================
+    function openApplyModal(e) {
+      applyModal.classList.add('open');
+      applyForm.reset();
+      document.querySelectorAll('.tjh-error-message').forEach(el => el.textContent = '');
+    }
+
+    function closeApplyModal() {
+      applyModal.classList.remove('open');
+      applyForm.reset();
+      document.querySelectorAll('.tjh-error-message').forEach(el => el.textContent = '');
+    }
+
+    document.querySelectorAll('.tjh-modal-close, .tjh-modal-close-btn').forEach(btn => {
+      btn.addEventListener('click', closeApplyModal);
+    });
+
+    applyModal.addEventListener('click', (e) => {
+      if (e.target === applyModal) closeApplyModal();
+    });
+
+    // ========================================
+    // FORM VALIDATION & SUBMISSION
+    // ========================================
+    applyForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('tjh-name').value.trim();
+      const email = document.getElementById('tjh-email').value.trim();
+      const phone = document.getElementById('tjh-phone').value.trim();
+      const availability = document.getElementById('tjh-availability').value;
+      const experience = document.getElementById('tjh-experience').value.trim();
+
+      let isValid = true;
+
+      // Clear errors
+      document.querySelectorAll('.tjh-error-message').forEach(el => el.textContent = '');
+
+      // Validate
+      if (!name) {
+        document.getElementById('tjh-error-name').textContent = 'Name is required';
+        isValid = false;
+      }
+
+      if (!email || !email.includes('@')) {
+        document.getElementById('tjh-error-email').textContent = 'Valid email is required';
+        isValid = false;
+      }
+
+      if (!availability) {
+        document.getElementById('tjh-error-availability').textContent = 'Availability is required';
+        isValid = false;
+      }
+
+      if (!experience || experience.length < 10) {
+        document.getElementById('tjh-error-experience').textContent = 'Please tell us more about your experience (at least 10 characters)';
+        isValid = false;
+      }
+
+      if (!isValid) return;
+
+      // Prepare payload
+      const payload = {
+        name,
+        email,
+        phone,
+        availability,
+        experience,
+        timestamp: new Date().toISOString()
+      };
+
+      // Save to localStorage
+      const submissions = JSON.parse(localStorage.getItem('tjh_submissions')) || [];
+      submissions.push(payload);
+      localStorage.setItem('tjh_submissions', JSON.stringify(submissions));
+
+      // Log to console for debugging
+      console.log('[v0] Form submitted:', payload);
+
+      // Example: WordPress REST endpoint
+      // const endpoint = '/wp-json/contact-form-7/v1/contact-forms/123/feedback';
+      // fetch(endpoint, {
+      //   method: 'POST',
+      //   body: JSON.stringify(payload),
+      //   headers: { 'Content-Type': 'application/json' }
+      // }).then(res => res.json()).then(data => console.log('Success:', data));
+
+      // Show success message
+      const formContainer = document.getElementById('tjh-form-container');
+      formContainer.innerHTML = `
+        <div class="tjh-success-message">
+          <strong>Thank you!</strong> Your application has been received. We'll review it and contact you within 3-5 business days.
+        </div>
+        <p style="text-align: center; color: #6b7280; margin-top: 1.5rem;">
+          <strong>Next Step:</strong> <a href="https://tally.so/r/3j2G4Q" target="_blank" style="color: var(--tjh-orange); font-weight: 500;">Complete our full application form →</a>
+        </p>
+        <div style="text-align: center; margin-top: 2rem;">
+          <button class="tjh-btn-cancel" onclick="window.location.reload()">Close</button>
+        </div>
+      `;
+
+      // Call the hook (empty for now, ready for integration)
+      if (typeof tjhOnSubmit === 'function') {
+        tjhOnSubmit(payload);
+      }
+    });
+
+    // ========================================
+    // BACK TO TOP
+    // ========================================
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ========================================
+    // INITIALIZATION
+    // ========================================
+    document.addEventListener('DOMContentLoaded', () => {
+      renderRoles();
+
+      // Hook for WordPress integration
+      window.tjhOnSubmit = function(payload) {
+        console.log('[v0] tjhOnSubmit hook called with payload:', payload);
+        // Custom logic here
+      };
+    });
+
+    // Keyboard navigation for modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && applyModal.classList.contains('open')) {
+        closeApplyModal();
+      }
+    });
+  </script>
+
+</body>
+</html>
