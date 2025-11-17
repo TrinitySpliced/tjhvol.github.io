@@ -417,7 +417,8 @@
       flex: 1;
     }
 
-    .tjh-save-btn {
+    /* Removed save button styling */
+    /* .tjh-save-btn {
       background: none;
       border: none;
       cursor: pointer;
@@ -426,15 +427,15 @@
       transition: color 0.2s ease;
       padding: 0;
       margin-left: 0.5rem;
-    }
+    } */
 
-    .tjh-save-btn.tjh-saved {
+    /* .tjh-save-btn.tjh-saved {
       color: var(--tjh-orange);
-    }
+    } */
 
-    .tjh-save-btn:hover {
+    /* .tjh-save-btn:hover {
       color: var(--tjh-orange);
-    }
+    } */
 
     .tjh-role-card-short {
       color: #64748b;
@@ -455,6 +456,13 @@
       align-items: center;
       gap: 0.5rem;
       color: #475569;
+    }
+
+    /* Removed text labels, added icon styling */
+    .tjh-role-meta-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
     }
 
     .tjh-role-meta-item strong {
@@ -999,7 +1007,7 @@
   <header class="tjh-main-header" role="banner">
     <div class="tjh-main-header-container">
       <a href="/" aria-label="The Job Hackers Homepage">
-        <img src="https://www.thejobhackers.org/wp-content/uploads/2020/09/cropped-thejobhackers-fb-0e2f76-300-pixels-transparent-100x100.png" alt="The Job Hackers logo" class="tjh-header-logo">
+        <img src="/images/design-mode/cropped-thejobhackers-fb-0e2f76-300-pixels-transparent-100x100.png" alt="The Job Hackers logo" class="tjh-header-logo">
       </a>
       <nav class="tjh-main-nav" aria-label="Main navigation">
         <a href="#tjh-roles">Roles</a>
@@ -1013,7 +1021,7 @@
   <!-- HERO SECTION -->
   <section class="tjh-hero" role="banner">
     <div class="tjh-hero-content">
-      <img src="https://www.thejobhackers.org/wp-content/uploads/2020/09/cropped-thejobhackers-fb-0e2f76-300-pixels-transparent-100x100.png" alt="The Job Hackers logo" class="tjh-logo">
+      <img src="/images/design-mode/cropped-thejobhackers-fb-0e2f76-300-pixels-transparent-100x100.png" alt="The Job Hackers logo" class="tjh-logo">
       <h1>Volunteer with The Job Hackers</h1>
       <p class="tjh-hero-subtext">Empower job seekers to transform their careers through agile coaching, community support, and professional development. Make a real impact.</p>
       <div class="tjh-hero-ctas">
@@ -1197,7 +1205,7 @@
   <!-- FOOTER -->
   <footer class="tjh-footer" role="contentinfo">
     <div class="tjh-footer-content">
-      <img src="https://www.thejobhackers.org/wp-content/uploads/2020/09/cropped-thejobhackers-fb-0e2f76-300-pixels-transparent-100x100.png" alt="The Job Hackers logo" class="tjh-footer-logo">
+      <img src="/images/design-mode/cropped-thejobhackers-fb-0e2f76-300-pixels-transparent-100x100.png" alt="The Job Hackers logo" class="tjh-footer-logo">
       <h3>The Job Hackers</h3>
       <div class="tjh-footer-contact">
         <p>Questions? Reach out at <a href="mailto:volunteer@thejobhackers.org">volunteer@thejobhackers.org</a></p>
@@ -1422,25 +1430,27 @@
         <article class="tjh-role-card" role="listitem">
           <div class="tjh-role-card-header">
             <h3>${role.title}</h3>
-            <button 
-              class="tjh-save-btn ${TJH_savedRoles.includes(role.id) ? 'tjh-saved' : ''}"
-              onclick="TJH_toggleSave('${role.id}')"
-              aria-label="${TJH_savedRoles.includes(role.id) ? 'Remove from saved' : 'Save role'}"
-              aria-pressed="${TJH_savedRoles.includes(role.id)}"
-            >
-              ${TJH_savedRoles.includes(role.id) ? '❤️' : '🤍'}
-            </button>
           </div>
           <p class="tjh-role-card-short">${role.short}</p>
           <div class="tjh-role-meta">
             <div class="tjh-role-meta-item">
-              <strong>Commitment:</strong> ${role.commitment}
+              <svg class="tjh-role-meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>${role.commitment}</span>
             </div>
             <div class="tjh-role-meta-item">
-              <strong>Meetings:</strong> ${role.meeting}
+              <svg class="tjh-role-meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              <span>${role.meeting}</span>
             </div>
             <div class="tjh-role-meta-item">
-              <strong>Location:</strong> ${role.location}
+              <svg class="tjh-role-meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <span>${role.location}</span>
             </div>
           </div>
           <div class="tjh-role-skills">
@@ -1598,19 +1608,6 @@
       button.textContent = isExpanded ? 'View Details' : 'Hide Details';
     }
 
-    // ========================================
-    // SAVE/UNSAVE ROLE
-    // ========================================
-    function TJH_toggleSave(roleId) {
-      const index = TJH_savedRoles.indexOf(roleId);
-      if (index > -1) {
-        TJH_savedRoles.splice(index, 1);
-      } else {
-        TJH_savedRoles.push(roleId);
-      }
-      localStorage.setItem('tjh_saved_roles', JSON.stringify(TJH_savedRoles));
-      TJH_renderRoles();
-    }
 
     // ========================================
     // MODAL
